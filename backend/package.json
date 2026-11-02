@@ -1,0 +1,25 @@
+{
+  "name": "job-application-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Job Application Tracker using Express and Supabase",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "job-tracker",
+    "express",
+    "supabase",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

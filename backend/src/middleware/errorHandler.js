@@ -1,0 +1,17 @@
+/**
+ * Centralized error handler middleware.
+ * Prevents leaking sensitive stack traces in production while returning clean JSON.
+ */
+const errorHandler = (err, req, res, next) => {
+  console.error('[SERVER ERROR]', err);
+
+  const statusCode = err.statusCode || res.statusCode >= 400 ? res.statusCode : 500;
+  
+  res.status(statusCode).json({
+    success: false,
+    message: err.message || 'An unexpected internal server error occurred.',
+    error: process.env.NODE_ENV === 'development' ? err.stack : undefined,
+  });
+};
+
+module.exports = { errorHandler };
